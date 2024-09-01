@@ -1,0 +1,15 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.users-page .btn{
+    background-color: transparent;
+    border: none;
+}
+
+.users-page .next, .users-page .prev{
+    padding: 5px 10px;
+    border: 1px solid black;
+}

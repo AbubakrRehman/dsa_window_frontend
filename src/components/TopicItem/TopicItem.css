@@ -1,0 +1,28 @@
+.topic-item { 
+    display: flex;
+    padding: 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.topic-item-actions {
+    display: flex;
+}
+
+.topic-title {
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.topic-item-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-item .question-count {
+    font-size: 12px;
+}
+
+.topic-item .edit-btn {
+    border: none;
+}

@@ -1,0 +1,7 @@
+.txtarea {
+    width: 100%;
+}
+
+.question-title {
+    text-transform: capitalize;
+}

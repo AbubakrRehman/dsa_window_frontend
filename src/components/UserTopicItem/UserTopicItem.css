@@ -1,0 +1,60 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc((100%/3) - 20px);
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.card-headerr{
+
+}
+
+.card-footerr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.progress-container {
+    width: 80%;
+    border: 1px solid ;
+    border-radius: 5px;
+}
+
+.progress-item {
+    height: 10px;
+    background-color: grey;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.topic-title {
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.stat {
+    display: flex;
+    width: 100%;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 768px) {
+    .card {
+        width: calc((100%/2) - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+    }
+}
+

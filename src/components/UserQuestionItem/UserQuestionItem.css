@@ -1,0 +1,25 @@
+input[type="checkbox"]:checked {
+    border: 1px solid red !important;
+}
+
+input[type="checkbox" i] {
+    color: brown !important;
+    cursor: pointer;
+}
+
+.note {
+    cursor: pointer;
+}
+
+.bookmark {
+    cursor: pointer;
+}
+
+.question-title {
+    text-transform: capitalize;
+}
+
+.action-items {
+    display: flex;
+    gap: 10px;
+}

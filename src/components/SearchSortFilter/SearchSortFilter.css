@@ -1,0 +1,112 @@
+.filter-container,
+.order-by-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-form .filter-items-container {
+    display: flex;
+    gap: 10px;
+
+}
+
+
+.filter-form .filter-items-container .form-check {
+    /* display: none; */
+    border: 1px solid;
+    padding: 3px 10px;
+    cursor: pointer !important;
+    font-size: 12px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.filter-form .filter-items-container .form-check.active {
+    background-color: gray;
+    color: white;
+}
+
+.filter-form .filter-items-container #form-check-2.active {
+    background-color: gray;
+    color: white;
+}
+
+.filter-form .filter-items-container .form-check input{
+    visibility: hidden;
+
+}
+
+.filter-form .filter-items-container .form-check label {
+    cursor: pointer;
+}
+
+select {
+    display: block;
+    /* border: 1px solid; */
+    /* width: 200px; */
+}
+
+select option {
+    /* color: black; */
+}
+
+.clear-btn {
+    margin: 0;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 9px;
+}
+
+.order-by {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px ;
+    font-size: 14px;
+    font-weight: 700 !important;
+}
+
+.order-btn {
+    padding: 0 5px;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+}
+
+select {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.search-box {
+    display: flex;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+
+.search-box input {
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+.search-box input:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: transparent;
+}
+
+.search-box .clear-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.multi-value-filter {
+    display: flex;
+    gap: 10px;
+}

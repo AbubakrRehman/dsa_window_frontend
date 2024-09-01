@@ -1,0 +1,49 @@
+.profile-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-container .edit-btn {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.user-detail-title {
+    text-align: center;
+}
+
+.upload-image {
+    display: flex;
+    gap: 10px;
+    cursor: pointer !important;
+    pointer-events: all;
+}
+
+.upload-image input {
+    display: none;
+}
+
+.delete-btn {
+    border: none;
+    background-color: transparent;
+}
+
+/* .delete-btn {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+} */
+
+.image-actions {
+    display: flex;
+    gap: 20px;
+}
+.upload-image-input {
+    cursor: pointer !important;
+}
