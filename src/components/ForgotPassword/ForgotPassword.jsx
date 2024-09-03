@@ -10,7 +10,7 @@ function ForgotPassword() {
   const [email, setEmail] = useState('');
 
   const sendMail = (email) => {
-    return axios.post(`${BASE_URL}/api/auth/forget-password`, { email: email })
+    return axios.post(`${BASE_URL}/api/auth/email-password-reset-link`, { email: email })
   }
 
   const handleSubmit = async (e) => {
