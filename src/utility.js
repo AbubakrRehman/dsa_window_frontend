@@ -5,8 +5,6 @@ const getQueryString = (filterData, page = 1) => {
     let orderTemplate = '';
     let resultantTemplateList = [];
 
-    // console.log("search search", filterData);
-
     if (filterData.search !== '') {
         searchTemplete = `search=${filterData.search}`;
         resultantTemplateList = [...resultantTemplateList, searchTemplete]

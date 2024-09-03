@@ -14,6 +14,8 @@ import Profile from "./components/Profile/Profile";
 import AuthenticatedLayout from "./components/AuthenticationLayout/AuthenticatedLayout";
 import UnauthenticatedLayout from "./components/UnauthenticatedLayout/UnauthenticatedLayout";
 import Practice from "./components/practice/Practice";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 
 
 const router = createBrowserRouter([
@@ -80,7 +82,14 @@ const router = createBrowserRouter([
             {
                 path: "/practice",
                 element: <Practice />
+            }, {
+                path: "/forget-password",
+                element: <ForgotPassword/>
             },
+            {
+                path: "/reset-password/:token",
+                element: <ResetPassword/>
+            }
         ]
     }
 ]);

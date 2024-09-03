@@ -15,9 +15,8 @@ function AuthContextProvider({ children }) {
                 return { user: null }
 
             case 'SIGNUP':
-
-                break;
-
+                return { user: action.payload }
+               
             default:
                 return state
 
@@ -27,12 +26,14 @@ function AuthContextProvider({ children }) {
 
 
     useEffect(() => {
-
         const user = JSON.parse(localStorage.getItem("user"));
-
         if (user) {
             dispatch({ type: "LOGIN", payload: user })
+        } else {
+            dispatch({ type: "LOGIN", payload: null })
         }
+
+        console.log("ppppppp", state.user);
 
     }, [])
 

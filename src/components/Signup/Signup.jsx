@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../constants/constants';
 
 function Signup() {
 
@@ -21,9 +22,9 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const result = await axios.post("/api/auth/signup", formValue);
+      const result = await axios.post(`${BASE_URL}/api/auth/signup`, formValue);
       localStorage.setItem("user", JSON.stringify(result.data));
-      dispatch({ type: "LOGIN", payload: result.data });
+      dispatch({ type: "SIGNUP", payload: result.data });
       navigate("/");
     } catch (error) {
       console.log("error", error);
@@ -38,12 +39,12 @@ function Signup() {
   return (
     <form onSubmit={handleFormSubmit} className='container'>
       <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={formValue.email} onChange={handleInputChange} />
+        <label htmlFor="email" className="form-label">Email address</label>
+        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" name="email" value={formValue.email} onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-        <input type="password" className="form-control" id="exampleInputPassword1" name="password" value={formValue.password} onChange={handleInputChange} />
+        <label htmlFor="password" className="form-label">Password</label>
+        <input type="password" className="form-control" id="password" name="password" value={formValue.password} onChange={handleInputChange} />
       </div>
 
       <button type="submit" className="btn btn-primary">Sign up</button>
