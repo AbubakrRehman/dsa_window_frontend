@@ -16,7 +16,9 @@ function ResetPassword() {
     }
 
     const verifyToken = (token) => {
-        return axios.get(`${BASE_URL}/api/auth/verify-token/${token}`)
+        return axios.post(`${BASE_URL}/api/auth/verify-password-reset-token`, {
+            token: token
+        })
     }
 
     const handleSubmit = async (e) => {
