@@ -1,0 +1,31 @@
+.login-form-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    /* border: 1px solid; */
+}
+
+.login-btn {
+    width: 100% !important;
+}
+
+.login-page {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    /* justify-content: center; */
+    /* border: 1px solid red; */
+}
+
+
+.signup-link {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
