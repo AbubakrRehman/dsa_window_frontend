@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { BASE_URL } from '../../constants/constants';
 
 import "./Signup.css";
+import { toast } from 'react-toastify';
 
 function Signup() {
+
+  const toastId = useRef(null);
 
   const [formValue, setFormValue] = useState({
     email: "",
@@ -14,7 +17,6 @@ function Signup() {
   })
 
   const { dispatch, user } = useAuth();
-  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormValue((prevFormValue) => ({ ...prevFormValue, [e.target.name]: e.target.value }))
@@ -24,12 +26,34 @@ function Signup() {
     e.preventDefault();
 
     try {
+
+      toastId.current = toast("", { autoClose: false });
+      toast.update(toastId.current, {
+        render: "Signup in process",
+        type: "success",
+        isLoading: true,
+        autoClose: false,
+      })
+
       const result = await axios.post(`${BASE_URL}/api/auth/signup`, formValue);
-      localStorage.setItem("user", JSON.stringify(result.data));
-      dispatch({ type: "SIGNUP", payload: result.data });
-      navigate("/");
+
+      toast.update(toastId.current, {
+        render: "A link is send to your email. Pls verify",
+        type: "success",
+        isLoading: false,
+        autoClose: false
+      })
+
+      // localStorage.setItem("user", JSON.stringify(result.data));
+      // dispatch({ type: "SIGNUP", payload: result.data });
+      // navigate("/");
     } catch (error) {
-      console.log("error", error);
+      toast.update(toastId.current, {
+        render: error.response.data.message,
+        type: "error",
+        isLoading: false,
+        autoClose: 1000 
+      })
     }
 
   }
@@ -57,9 +81,9 @@ function Signup() {
         </form>
 
         <div className='mt-3'>
-            Already have an account?
-              <Link className="signup-link" to="/login">&nbsp;Login</Link>
-          </div>
+          Already have an account?
+          <Link className="signup-link" to="/login">&nbsp;Login</Link>
+        </div>
       </div>
     </div>
 

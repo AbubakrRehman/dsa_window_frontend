@@ -32,9 +32,6 @@ function AuthContextProvider({ children }) {
         } else {
             dispatch({ type: "LOGIN", payload: null })
         }
-
-        console.log("ppppppp", state.user);
-
     }, [])
 
 

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import axios from "axios";
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { BASE_URL } from '../../constants/constants';
 import { toast } from 'react-toastify';
-import "./LogIn.css"
+import "./LogIn.css";
+
 
 function LogIn() {
+
+  const toastId = useRef(null)
 
   const [formValue, setFormValue] = useState({
     email: "",
@@ -14,7 +17,6 @@ function LogIn() {
   })
 
   const { dispatch, user } = useAuth();
-  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormValue((prevFormValue) => ({ ...prevFormValue, [e.target.name]: e.target.value }))
@@ -24,12 +26,41 @@ function LogIn() {
     e.preventDefault();
 
     try {
+      toastId.current = toast("",{ autoClose: false });
+      toast.update(toastId.current, {
+        render: "Login in process",
+        type: "success",
+        isLoading: true,
+        autoClose: false ,
+      })
       const result = await axios.post(`${BASE_URL}/api/auth/login`, formValue);
-      localStorage.setItem("user", JSON.stringify(result.data));
-      dispatch({ type: "LOGIN", payload: result.data });
-      navigate("/");
+    
+      if (result.data.user) {
+        toast.update(toastId.current, {
+          render: "Login successful",
+          type: "success",
+          isLoading: false,
+          autoClose: 500 
+        })
+        localStorage.setItem("user", JSON.stringify(result.data));
+        dispatch({ type: "LOGIN", payload: result.data });
+      } else {
+        toast.update(toastId.current, {
+          render: "A link is send to your email. Pls verify",
+          type: "success",
+          isLoading: false,
+          autoClose: false 
+        })
+      }
+
     } catch (error) {
-      toast.error(error.response.data.message)
+      toast.update(toastId.current, {
+        render: error.response.data.message,
+        type: "error",
+        isLoading: false,
+        autoClose: 1000 
+      })
+      // toast.error(error.response.data.message)
     }
   }
 
