@@ -1,0 +1,9 @@
+.add-topic-btn {
+    border: none;
+    margin: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: auto;
+    border-radius: 5px;
+    display: flex;
+}

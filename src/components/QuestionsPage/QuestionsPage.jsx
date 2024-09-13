@@ -5,6 +5,8 @@ import { BASE_URL } from '../../constants/constants';
 import { useAuth } from '../../context/AuthContext';
 import QuestionItem from '../QuestionItem/QuestionItem';
 import { toast } from 'react-toastify';
+import AddQuestionPopup from '../AddQuestionPopup/AddQuestionPopup';
+import "./QuestionsPage.css"
 
 function QuestionsPage() {
 
@@ -28,14 +30,7 @@ function QuestionsPage() {
         return axios.delete(`${BASE_URL}/api/topics/${topicId}/questions/${question.id}`)
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        let formData = new FormData(e.target);
-        formData = Object.fromEntries(formData.entries());
-
-        if (formData.title.trim() === "") return;
-
+    const handleSubmit = async (formData) => {
         try {
             await addQuestion(formData);
             toast.success(`Question has been added successfully`)
@@ -45,7 +40,7 @@ function QuestionsPage() {
             toast.success(`Failed to add question`)
         }
 
-        e.target.reset();
+        // e.target.reset();
     }
 
     const handleQuestionDeletion = async (question, topicId) => {
@@ -65,33 +60,29 @@ function QuestionsPage() {
                 });
                 setQuestions(result.data);
             }
-            catch(error) {
+            catch (error) {
                 console.log("error", error);
             }
 
-            
+
         }
 
-            if (user) {
-                loadQuestions();
-            }
-        
+        if (user) {
+            loadQuestions();
+        }
+
     }, [_, topicId, user])
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <div className='container'>
             <h1>Questions</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Question</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" name="title"></textarea>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">Link</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="1" name="link"></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+
+            <button className="add-quesn-btn" onClick={handleShow}>Add Question</button>
+            <AddQuestionPopup show={show} handleClose={handleClose} onAdd={handleSubmit} />
 
             <div className='mt-3'>
                 {questions.length > 0 ? questions?.map((question) => {

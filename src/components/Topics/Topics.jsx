@@ -3,6 +3,8 @@ import axios from 'axios';
 import TopicItem from '../TopicItem/TopicItem';
 import { BASE_URL } from '../../constants/constants';
 import { toast } from 'react-toastify';
+import AddTopicPopup from '../AddTopicPopup/AddTopicPopup';
+import "./Topics.css";
 
 function Topics() {
 
@@ -24,13 +26,7 @@ function Topics() {
   }
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    let formData = new FormData(e.target);
-    formData = Object.fromEntries(formData.entries());
-
-    if (formData.title.trim() === "") return;
+  const handleSubmit = async (formData) => {
 
     try {
       await addTopic(formData);
@@ -39,8 +35,6 @@ function Topics() {
     } catch (error) {
       // toast.error("Something went wrong !!");
     }
-
-    e.target.reset();
   }
 
 
@@ -71,24 +65,22 @@ function Topics() {
 
   }, [_])
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   if (topics.length === 0) {
     return <p>No topics found !!!</p>
   }
 
-
-
   return (
     <>
       <div className="container">
         <h1>Topics</h1>
-        <form onSubmit={handleSubmit}>
-          <div className='input-box'>
-            <input type="text" name="title" placeholder='Enter Topic name...' className='reset-input' autoFocus />
-            <button className='reset-btn add-btn' type="submit">Add</button>
-          </div>
-
-        </form>
+      
+        <button className="add-topic-btn mb-3" onClick={handleShow}>Add Topic</button>
+        <AddTopicPopup show={show} handleClose={handleClose} onAdd={handleSubmit} />
 
 
         {topics.length > 0 ? topics?.map((topic) => {

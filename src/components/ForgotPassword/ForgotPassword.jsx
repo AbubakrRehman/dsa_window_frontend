@@ -54,22 +54,33 @@ function ForgotPassword() {
 
   return (
 
-    <div className='container'>
+    <div className='forgot-password-page'>
 
-      <h1>Reset your password</h1>
-      <p>Lost your password? Please enter your email address.</p>
-      <p>You will receive a link to create a new password via email.</p>
-
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email address</label>
-          <input type="email" className="form-control" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <div className='forgot-password-form-container'>
+        <div>
+          <h2>Reset your password</h2>
+          <p>Lost your password? Please enter your email address.</p>
+          <p>You will receive a link to create a new password via email.</p>
         </div>
 
-        <button type="submit" className="btn btn-primary">Send Email</button>
-      </form>
+        <form onSubmit={handleSubmit} className='forgot-password-form mb-3'>
+          <div className="mb-3">
+            {/* <label htmlFor="email" className="form-label">Email address</label> */}
+            <input placeholder="Enter email here..." type="email" className="form-control" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+          <button type="submit" className="btn btn-primary">Send Email</button>
+        </form>
 
-      <Link to="/login">Redirect to LogIn</Link>
+        <Link to="/login">Redirect to LogIn</Link>
+      </div>
+
+
+
+
+
+
+
+
 
     </div>
 
