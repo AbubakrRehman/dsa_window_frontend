@@ -9,10 +9,14 @@ input[type="checkbox" i] {
 
 .note {
     cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
 .bookmark {
     cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
 .question-title {

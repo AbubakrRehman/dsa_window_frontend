@@ -73,7 +73,7 @@ function UserQuestionsPage() {
     const handleQuestionSubmission = useCallback(async (question, key) => {
 
         let payload = {};
-        payload[key] = (question[key] == true || question[key] == false) ? !question[key] : question[key];
+        payload[key] = (key === 'isCompleted' || key === 'isBookmarked') ? !question[key] : question[key];
         let questionId = question.id;
 
         try {

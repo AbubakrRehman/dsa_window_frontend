@@ -19,7 +19,12 @@
     font-size: 12px;
     border-radius: 5px;
     font-weight: 500;
+    position: relative;
 }
+
+.filter-form .filter-items-container .form-check:focus-within {
+    outline: 1px solid black;
+} 
 
 .filter-form .filter-items-container .form-check.active {
     background-color: gray;
@@ -31,9 +36,10 @@
     color: white;
 }
 
-.filter-form .filter-items-container .form-check input{
-    visibility: hidden;
-
+.filter-form .filter-items-container .form-check input {
+    /* visibility: hidden; */
+    position: absolute;
+    opacity: 0;
 }
 
 .filter-form .filter-items-container .form-check label {
@@ -52,7 +58,6 @@ select option {
 
 .clear-btn {
     margin: 0;
-    outline: none;
     background-color: transparent;
     border: 1px solid black;
     border-radius: 5px;
@@ -65,7 +70,7 @@ select option {
 .order-by {
     display: flex;
     border: 1px solid black;
-    border-radius: 5px ;
+    border-radius: 5px;
     font-size: 14px;
     font-weight: 700 !important;
 }
@@ -79,14 +84,19 @@ select option {
 
 select {
     border: none;
-    outline: none;
     background-color: transparent;
 }
 
 .search-box {
     display: flex;
-   border: 1px solid black;
-   border-radius: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+.search-box:focus-within {
+    outline: none;
+    border: 2px solid black;
 }
 
 .search-box input {

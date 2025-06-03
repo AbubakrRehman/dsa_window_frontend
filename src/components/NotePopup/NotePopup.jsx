@@ -26,7 +26,7 @@ function NotePopup({ show, handleClose, question, onSubmit }) {
                     Submit
                 </Button>
             </Modal.Footer>
-        </Modal >
+        </Modal>
     )
 }
 

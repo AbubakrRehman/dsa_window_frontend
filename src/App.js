@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
-      <ToastContainer autoClose={1500}/>
+      <ToastContainer autoClose={1500} />
       <AuthContextProvider>
         <RouterProvider router={router} />
       </AuthContextProvider></>

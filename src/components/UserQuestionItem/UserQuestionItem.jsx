@@ -21,19 +21,19 @@ function UserQuestionItem({  index, question, onQuestionAttempt }) {
             <td> <div className='question-title'>{question.title}</div></td>
             <td>
                 <div className='action-items'>
-                    <div className="bookmark" onClick={() => onQuestionAttempt(question, 'isBookmarked')}>
+                    <button className="bookmark" onClick={() => onQuestionAttempt(question, 'isBookmarked')}>
                         {question.isBookmarked
                             ? <img src={bookmark_solid} alt="bookmark_solid" height="30px" width="30px" />
                             : <img src={bookmark_outline} alt="bookmark_outline" height="30px" width="30px" />
                         }
-                    </div>
+                    </button>
 
-                    <div onClick={handleShow} className='note'>
+                    <button onClick={handleShow} className='note'>
                         {question.note
                             ? <img src={note_solid} alt="note_solid" height="30px" width="30px" />
                             : <img src={note_outline} alt="note_outline" height="30px" width="30px" />
                         }
-                    </div>
+                    </button>
                     <NotePopup show={show} handleClose={handleClose} question={question} onSubmit={onQuestionAttempt} />
                 </div>
             </td>

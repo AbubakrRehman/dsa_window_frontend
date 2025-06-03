@@ -111,7 +111,7 @@ function SearchSortFilter({ filterByItems, orderByItems, onSearchWithFilters, de
         <form className='container filter-form' onSubmit={handleSubmit} >
             <div className="mt-3 search-box">
                 {/* <label htmlFor="search-input" className="form-label">Search</label> */}
-                <input value={search} onChange={handleInputChange} placeholder={placeholder} type="text" className="form-control" id="search-input" />
+                <input autoFocus value={search} onChange={handleInputChange} placeholder={placeholder} type="text" className="form-control" id="search-input" />
                 {search.trim() !== '' ? <button type="button" className='clear-btn' onClick={handleSearchClear}>Clear</button> : null}
             </div>
 
@@ -175,7 +175,7 @@ function SearchSortFilter({ filterByItems, orderByItems, onSearchWithFilters, de
                     }
                 </div>
             </div>
-        </form >
+        </form>
     )
 }
 
