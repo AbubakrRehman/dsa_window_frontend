@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchSortFilter from '../SearchSortFilter/SearchSortFilter'
-import { filterByItems } from "../UserQuestionsPage/constants";
+import { filterByItems } from "../../pages/UserQuestionsPage/constants";
 
 function Practice() {
 

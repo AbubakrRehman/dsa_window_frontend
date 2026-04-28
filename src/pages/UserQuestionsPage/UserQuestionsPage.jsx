@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { BASE_URL } from '../../constants/constants';
-import { useAuth } from '../../context/AuthContext';
+import { BASE_URL } from '../../constants/constants.js';
+import { useAuth } from '../../context/AuthContext.js';
 import "./UserQuestionsPage.css";
-import UserQuestionItem from '../UserQuestionItem/UserQuestionItem';
+import UserQuestionItem from '../../components/UserQuestionItem/UserQuestionItem.jsx';
 import { toast } from 'react-toastify';
-import SearchSortFilter from '../SearchSortFilter/SearchSortFilter';
+import SearchSortFilter from '../../components/SearchSortFilter/SearchSortFilter.jsx';
 import { filterByItems, orderByItems, defaultFilterValues } from "./constants.js";
 import { getQueryString } from '../../utility.js';
 
@@ -92,11 +92,11 @@ function UserQuestionsPage() {
     const handleSearch = useCallback((formData) => { setFilterData(formData); }, [])
 
     return (
-        <div className='container'>
+        <div className='container uq-page'>
 
             <SearchSortFilter placeholder="Enter question text" onSearchWithFilters={handleSearch} filterByItems={filterByItems} orderByItems={orderByItems} defaultFilterValues={defaultFilterValues}/>
 
-            <div className='mt-3'>
+            <div className='mt-3 uq-table'>
                 {questions.length > 0 ?
                     <table>
                         <thead>

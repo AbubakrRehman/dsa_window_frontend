@@ -2,11 +2,12 @@ import React, { useCallback, useEffect, useReducer, useRef, useState } from 'rea
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/constants';
-import UserItem from '../UserItem/UserItem';
+// import UserItem from '../UserItem/UserItem';
+import UserItem from "../../components/UserItem/UserItem.jsx";
 import { toast } from 'react-toastify';
 import "./UsersPage.css";
 import { defaultFilterValues, filterByItems, orderByItems } from './constants';
-import SearchSortFilter from '../SearchSortFilter/SearchSortFilter';
+import SearchSortFilter from '../../components/SearchSortFilter/SearchSortFilter';
 import { getQueryString } from '../../utility';
 
 function UsersPage() {

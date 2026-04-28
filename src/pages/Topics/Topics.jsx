@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import axios from 'axios';
-import TopicItem from '../TopicItem/TopicItem';
+import TopicItem from '../../components/TopicItem/TopicItem';
 import { BASE_URL } from '../../constants/constants';
 import { toast } from 'react-toastify';
-import AddTopicPopup from '../AddTopicPopup/AddTopicPopup';
+import AddTopicPopup from '../../components/AddTopicPopup/AddTopicPopup';
 import "./Topics.css";
 
 function Topics() {

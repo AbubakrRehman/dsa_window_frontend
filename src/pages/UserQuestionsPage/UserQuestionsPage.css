@@ -43,3 +43,19 @@ thead, tbody {
    border: transparent;
 }
 
+.uq-page {
+   flex-direction: column;
+   overflow: hidden;
+   display: flex;
+   flex-grow: 1;
+}
+
+.uq-table {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}

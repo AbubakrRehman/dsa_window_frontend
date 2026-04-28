@@ -2,8 +2,8 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/constants';
-import UserTopicItem from '../UserTopicItem/UserTopicItem';
-import "../Home/Home.css"
+import UserTopicItem from '../../components/UserTopicItem/UserTopicItem';
+import "./Home.css"
 
 function Home() {
 

@@ -1,22 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
+import {lazy} from "react";
 import Root from "./components/Root";
-import Signup from "./components/Signup/Signup";
-import LogIn from "./components/Login/LogIn";
-import NotFound from "./components/NotFound/NotFound";
-import UsersPage from "./components/UsersPage/UsersPage";
-import UserDetail from "./components/UserDetail/UserDetail";
-import Topics from "./components/Topics/Topics";
-import UserQuestionsPage from "./components/UserQuestionsPage/UserQuestionsPage";
-import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
-import Home from "./components/Home/Home"
-import QuestionsPage from "./components/QuestionsPage/QuestionsPage";
-import Profile from "./components/Profile/Profile";
-import AuthenticatedLayout from "./components/AuthenticationLayout/AuthenticatedLayout";
-import UnauthenticatedLayout from "./components/UnauthenticatedLayout/UnauthenticatedLayout";
+import Signup from "./pages/Signup/Signup";
+import LogIn from "./pages/Login/LogIn";
+import NotFound from "./pages/NotFound/NotFound";
+import Home from "./pages/Home/Home";
+import AuthenticatedLayout from "./pages/AuthenticationLayout/AuthenticatedLayout";
+import UnauthenticatedLayout from "./pages/UnauthenticatedLayout/UnauthenticatedLayout";
 import Practice from "./components/practice/Practice";
-import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
-import ResetPassword from "./components/ResetPassword/ResetPassword";
+// import UserDetail from "./pages/UserDetail/UserDetail";
 
+//lazy load
+const UsersPage = lazy(() => import("./pages/UsersPage/UsersPage"));
+const UserDetail = lazy(() => import("./pages/UserDetail/UserDetail"));
+const Topics = lazy(() => import("./pages/Topics/Topics"));
+const UserQuestionsPage = lazy(() => import("./pages/UserQuestionsPage/UserQuestionsPage"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard/AdminDashboard"));
+const QuestionsPage = lazy(() => import("./pages/QuestionsPage/QuestionsPage"));
+const Profile = lazy(() => import("./pages/Profile/Profile"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword/ForgotPassword"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword/ResetPassword"));
 
 const router = createBrowserRouter([
     {
@@ -35,6 +38,10 @@ const router = createBrowserRouter([
                         element: <LogIn />
 
                     },
+                    {
+                        path: "/forget-password",
+                        element: <ForgotPassword/>
+                    }
                 ]
             },
             {
@@ -82,9 +89,6 @@ const router = createBrowserRouter([
             {
                 path: "/practice",
                 element: <Practice />
-            }, {
-                path: "/forget-password",
-                element: <ForgotPassword/>
             },
             {
                 path: "/reset-password/:token",

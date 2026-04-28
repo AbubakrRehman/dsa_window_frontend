@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import { useAuth } from '../../context/AuthContext';
 import { Navigate, Outlet } from 'react-router-dom';
+import Navbar from "../../components/Navbar/Navbar.jsx";
 
 function AuthenticatedLayout() {
     const { user } = useAuth();
@@ -12,7 +13,14 @@ function AuthenticatedLayout() {
     }
 
     return (
-        user ? <Outlet /> : <p>Loading....</p>
+        user ? 
+        <>
+        <Navbar/>
+        <Suspense fallback={<div>...........loading</div>}>
+        <Outlet />
+        </Suspense>
+        </>
+         : <p>Loading....</p>
     )
 }
 

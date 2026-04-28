@@ -3,9 +3,9 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { BASE_URL } from '../../constants/constants';
 import { useAuth } from '../../context/AuthContext';
-import QuestionItem from '../QuestionItem/QuestionItem';
+import QuestionItem from '../../components/QuestionItem/QuestionItem';
 import { toast } from 'react-toastify';
-import AddQuestionPopup from '../AddQuestionPopup/AddQuestionPopup';
+import AddQuestionPopup from '../../components/AddQuestionPopup/AddQuestionPopup';
 import "./QuestionsPage.css"
 
 function QuestionsPage() {

@@ -13,7 +13,7 @@ function Root() {
 
     return (
         <>
-            {user ? <Navbar /> : ""}
+            {/* {user ? <Navbar /> : ""} */}
             <Outlet />
         </>
     )
