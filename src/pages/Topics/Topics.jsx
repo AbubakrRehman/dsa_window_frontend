@@ -76,16 +76,17 @@ function Topics() {
 
   return (
     <>
-      <div className="container">
+      <div className="container topics-page">
         <h1>Topics</h1>
       
         <button className="add-topic-btn mb-3" onClick={handleShow}>Add Topic</button>
         <AddTopicPopup show={show} handleClose={handleClose} onAdd={handleSubmit} />
 
-
+        <div className="topics">
         {topics.length > 0 ? topics?.map((topic) => {
           return <TopicItem key={topic.id} topic={topic} onRemove={handleTopicDeletion} onEdit={handleTopicUpdate} />
         }) : ''}
+        </div>
       </div>
     </>
 

@@ -6,8 +6,7 @@ import uploadSolid from "../../assets/upload_solid.png";
 import deleteSolid from "../../assets/delete_solid.png"
 import { toast } from 'react-toastify';
 import { useAuth } from '../../context/AuthContext';
-// import classes from "./UserDetail.module.css";
-import "./indexx.css";
+import "./UserDetail.css";
 
 function UserDetail() {
 

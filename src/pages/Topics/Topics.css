@@ -7,3 +7,17 @@
     border-radius: 5px;
     display: flex;
 }
+
+
+.topics-page {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.topics {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 10px 20px;
+}

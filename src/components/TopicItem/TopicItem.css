@@ -8,11 +8,13 @@
 
 .topic-item-actions {
     display: flex;
+    gap: 10px;
 }
 
 .topic-title {
     text-transform: capitalize;
     cursor: pointer;
+    text-align: unset;
 }
 .topic-item-content {
     display: flex;
@@ -23,6 +25,6 @@
     font-size: 12px;
 }
 
-.topic-item .edit-btn {
+.topic-item .edit-btn, .topic-item .delete-btn {
     border: none;
 }

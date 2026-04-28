@@ -119,7 +119,7 @@ function UsersPage() {
 
             <SearchSortFilter placeholder="Enter username or email" onSearchWithFilters={handleSearch} filterByItems={filterByItems} orderByItems={orderByItems} defaultFilterValues={defaultFilterValues}/>
 
-            <div className='mt-3'>
+            <div className='mt-3 user-list'>
                 {/* <h1>Users</h1> */}
                 {users?.length > 0 ? users?.map((user) => {
                     return <UserItem key={user.id} user={user} onRemove={handleUserDeletion} onEdit={handleUserUpdate} />
