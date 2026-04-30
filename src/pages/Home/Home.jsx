@@ -30,7 +30,7 @@ function Home() {
 
   return (
     <> 
-      <div className="container mt-5">
+      <div className="container home-page">
         <div className='flex-container'>
           {userTopics.length > 0 ? userTopics?.map((topic) => {
             return <UserTopicItem key={topic.id} topic={topic} />
