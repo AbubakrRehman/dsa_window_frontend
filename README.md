@@ -8,7 +8,7 @@ A comprehensive, full-stack platform designed to help developers systematically 
 
 **PostgreSQL • Express • React • Node.js**
 
-**[🔗 Live Demo](https://your-live-demo-link.com)** | **[🎨 Frontend Repo](https://github.com/AbubakrRehman/dsa_window_frontend)** | **[⚙️ Backend Repo](https://github.com/AbubakrRehman/dsa_window_backend)**
+**[⚙️Backend Repo](https://github.com/AbubakrRehman/dsa_window_backend)**
 
 ---
 
